@@ -1,0 +1,2734 @@
+@import base
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Prosto+One&display=swap');
+
+// -----CONTAINER-----
+.container
+	width: 100%
+	max-width: 1300px
+	padding: 0 15px
+	margin: 0 auto
+
+	+r(1200)
+		max-width: 992px
+
+	+r(992)
+		max-width: 768px
+
+	+r(767)
+		max-width: 576px
+
+	+r(576)
+		max-width: 480px
+
+.red
+	background: #8e0010;
+
+.pulse-element 
+	animation: pulse 5s infinite;
+
+	@keyframes pulse 
+		0% 
+				transform: scale(1);
+				opacity: 1;
+		
+		50% 
+				transform: scale(1.1);
+				opacity: 1;
+		100% 
+				transform: scale(1);
+				opacity: 1;
+// -----BUTTON-----
+.btn
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 45px
+	border-radius: 20px
+	max-width: fit-content
+	border: 1px solid $dark
+	background-color: $dark
+	padding: 0 15px
+	font-size: 16px
+	color: #fff
+
+
+	&:hover
+		border: 1px solid $accent
+		background: $accent
+		color: #fff
+
+	&:active
+		border: 1px solid #fff
+		background: $accent
+		color: #fff
+
+
+@keyframes left
+	0% 
+			transform: translatex(0);
+	50% 
+		transform: translatex(10px);
+	100% 
+		transform: translatex(0);
+
+@keyframes jumpInfinite
+	0% 
+			transform: translateY(0);
+	50% 
+		transform: translateY(10px);
+	100% 
+		transform: translateY(0);
+
+@keyframes moveLeftRight 
+	0%, 100% 
+		padding-right: 0;
+	
+	50% 
+		padding-right: 10px;
+	
+
+
+	
+.banner
+	overflow: hidden
+	+r(576)
+		background:  url("../img/banner.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 1
+
+	&__container
+		display: grid;
+		grid-template-columns: 65% 25%;
+		justify-items: center;
+		justify-content: space-between;
+		position: relative
+		z-index: 10
+		+r(992)
+			grid-template-columns: 1fr
+
+	&__content
+		display: flex
+		flex-direction: column
+		margin-top: 55px
+		+r(992)
+			margin-bottom: 40px
+		+r(576)
+			margin-top: 95px
+
+	&__title
+		color: rgba(0, 0, 0, 0.70);
+		font-family: 'Prosto One';
+		font-size: 350px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		max-width: 531px;
+		width: 100%
+		text-align: center
+		+r(576)
+			color: rgba(255, 255, 255, 0.90);
+			font-family: Prosto One;
+			font-size: 200px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+
+	&__subtitle
+		color: rgba(0, 0, 0, 0.50);
+		font-family: 'Prosto One';
+		font-size: 52px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		&:nth-child(1)
+			letter-spacing: 9.18px;
+			margin-block-end: -50px;
+			text-align: center;
+		&:nth-child(3)
+			margin-block-start: -50px;
+			text-align: center;
+		+r(767)
+			font-size: 44px
+		+r(576)
+			color: #FFF;
+			font-family: Prosto One;
+			font-size: 28px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 5.04px;
+			&:nth-child(1)
+				margin-block-end: -35px;
+		+r(420)
+			font-size: 20px
+
+	&__btns
+		margin-top: 35px
+		display: flex
+		flex-direction: column
+		gap: 35px
+		img
+			max-width: 80px
+			width: 100%
+		+r(576)
+			margin-top: 200px
+
+	&__btn
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		display: flex
+		gap: 45px
+		padding: 17px 39px
+		max-width: 560px;
+		width: 100%;
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		img
+			animation: left 1.5s infinite
+		&:hover
+			color: #8e0010;
+			border: 1px solid #8e0010;
+		&:nth-last-child(1)
+			border-radius: 0px 56px;
+			border: 1px solid rgba(0, 0, 0, 0.80);
+		+r(576)
+			color: #FFF;
+			font-family: Montserrat;
+			gap: 10px
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 300;
+			line-height: normal;
+			&:nth-child(1)
+				border-radius: 56px 0px;
+				background: rgba(255, 255, 255, 0.30);
+				border: 0
+				img
+					filter: brightness(0) invert(100%);
+					
+			&:nth-child(2)
+				border-radius: 0px 56px;
+				background: rgba(255, 255, 255, 0.30);
+				border: 0
+				flex-direction: row-reverse
+				text-align: end
+				img
+					transform: rotate(180deg) !important
+					animation: moveLeftRight 1.5s infinite;
+					filter: brightness(0) invert(100%);
+					
+	&__img
+		+r(992)
+			display: none
+
+	&__arrow-hiden
+		display: none
+		+r(576)
+			display: flex
+			width: 30px;
+			height: 30px;
+			margin: 30px auto 15px auto
+			filter: brightness(0) invert(100%);
+			animation: jumpInfinite 1.5s infinite
+
+.about
+	background: #8E0010;
+	
+	&__container
+		display: grid
+		grid-template-columns: 40% 60%
+		+r(1200)
+			grid-template-columns: repeat(2,50%)
+		+r(992)
+			grid-template-columns: 1fr
+		
+	&__title
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		margin-top: 20px
+		+r(576)
+			font-size: 40px
+			margin-top: 40px
+
+	&__img
+		img
+			width: 100%
+			object-fit: cover
+			margin-inline-start: -15%
+		+r(1200)
+			margin-inline-start: -40%;
+			display: flex;
+		+r(992)
+			display: none
+
+	&__text
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		margin-top: 50px
+		padding-left: 50px
+		+r(992)
+			padding: 0
+		+r(576)
+			font-size: 16px
+			margin-top: 25px
+			padding: 0 15px 0 30px
+
+	&__description
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 47px
+		padding-left: 20px
+		+r(1200)
+			font-size: 24px
+		+r(992)
+			padding: 0
+		+r(576)
+			font-size: 20px
+			margin-top: 20px
+			padding: 0 10px 10px 10px
+			text-align: center
+
+.education
+	background: #8E0010;
+	+r(576)
+		background:  url("../img/education.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		position: relative
+		z-index: 10
+
+	&__title
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 75px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		margin-top: 16px
+		+r(767)
+			font-size: 60px
+		+r(576)
+			font-size: 40px
+			margin-top: 50px
+
+	&__subtitle
+		color: #FFF;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		padding-bottom: 25px
+		+r(767)
+			font-size: 24px
+		+r(576)
+			font-size: 18px
+			padding: 0
+			margin-top: 40px
+
+	&__btns
+		display: none
+		+r(576)
+			display: flex
+			flex-direction: column
+			gap: 30px	
+			margin: 50px 0 60px 0
+
+	&__btn
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		padding: 17px 39px;
+		background: transparent
+		img
+			filter: brightness(0) invert(100%);
+			animation: left 1.5s infinite
+		&:nth-child(1)
+			border-radius: 56px 0px;
+			border: 1px solid #FFF;
+			
+		&:nth-child(2)
+			border-radius: 0px 56px;
+			border: 1px solid #FFF;
+
+.courses
+
+	&__accordion 
+		margin: 10px;
+		box-shadow: 11px 10px 70px 0px rgba(142, 0, 16, 0.15);
+		+r(576)
+			margin: 0
+			width: auto
+			background: #fff;
+
+	&__container
+		+r(576)
+			padding: 0
+
+	&__last-acardeon
+		box-shadow: 11px 10px 70px 0px rgba(142, 0, 16, 0.15);
+		margin-top: 130px
+		+r(576)
+			margin-top: 0px
+			width: 100%
+
+	&__accordion-header 
+		display: flex;
+		flex-direction: column
+		align-items: center
+		background: #8E0010;
+		height: 300px
+		justify-content: space-between;
+
+		+r(767)
+			height: auto
+
+	&__accordion-header.active
+		height: max-content
+
+	&__accordion-header-second
+		display: flex;
+		flex-direction: column
+		align-items: center
+		background: #fff
+		justify-content: space-between;
+		height: 300px
+		+r(767)
+			height: auto
+
+	&__accordion-header-second.active
+		height: max-content
+
+	&__accordion-header-last
+		display: flex;
+		flex-direction: column
+		align-items: center
+		background: #fff
+		justify-content: space-between;
+		+r(767)
+			box-shadow: 11px 10px 70px 0px rgba(142, 0, 16, 0.15);
+
+	&__accordion-content 
+		display: none;
+		padding: 10px;
+		transition: max-height 0.3s ease-in-out
+
+	&__accordion-toggle
+		margin: 35px 0
+		cursor: pointer
+		animation: jumpInfinite 1.5s infinite
+		&:nth-last-of-type()
+			margin: 20px 0 15px !important
+
+	&__accordion-close
+		display: none
+		color: #8E0010;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		border: none;
+		padding: 5px 10px;
+		cursor: pointer;
+		margin: 30px auto 30px auto
+		background: transparent
+
+	&__accordion-title
+		color: #FFF;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+
+	&__accordion-title-second
+		color: #8E0010;
+		font-family: Prosto One;
+		font-size: 50px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 25px
+		text-align: center
+		+r(1200)
+			font-size: 35px
+		+r(576)
+			font-size: 24px
+
+	&__accordion-text
+		color: #8E0010;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 45px
+
+	&__accordion-text-second
+		color: #8E0010;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 55px
+		padding: 0 25px;
+		+r(576)
+			margin-top: 25px
+
+	&__acordion-img
+		width: 100%
+		object-fit: cover
+
+	&__accordion-subtitle-second
+		color: #8E0010;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 25px
+
+	&__accordion-btns
+		display: flex
+		justify-content: center;
+		gap: 30px
+		margin-top: 45px
+		+r(767)
+			flex-direction: column
+			align-items: center
+
+	&__accordion-button
+		border-radius: 56px 0px 0px 56px;
+		border: 1px solid #8E0010;
+		background: #FFF;
+		padding: 17px 39px;
+		max-width: 292px
+		width: 100%
+		color: #8E0010;
+		font-family: Montserrat;
+		font-size: 30px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		display: flex
+		align-items: center;
+		justify-content: center
+		gap: 10px
+		img
+			animation: left 1.5s infinite
+		&:nth-child(1)
+			border-radius: 56px 0px;
+			border: 1px solid #8E0010;
+			background: #FFF;
+		&:nth-child(2)
+			border-radius: 0px 56px ;
+			border: 1px solid #8E0010;
+			background: #FFF;
+		+r(767)
+			font-size: 20px
+			justify-content: center;
+
+	&__accordion-button.last
+		max-width: inherit
+		width: 100%
+
+	&__content
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		margin-top: 40px
+		align-items: start; 
+		+r(992)
+			grid-template-columns: 1fr
+		+r(576)
+			margin: 0
+
+	&__small-width
+		font-size: 40px !important
+		+r(1200)
+			font-size: 35px !important
+		+r(576)
+			font-size: 24px !important
+
+	&__reviews
+		background: #FFF;
+		box-shadow: 11px 10px 70px 0px rgba(142, 0, 16, 0.15);
+		color: #8E0010;
+		text-align: center;
+		font-family: Prosto One;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex;
+		justify-content: center;
+		margin-top: 33px
+		padding: 18px 0
+		+r(767)
+			font-size: 34px
+		+r(576)
+			font-size: 24px
+			background: #8E0010;
+			color: #fff
+			margin: 0
+			width: 100%
+
+	&__accordion-button-first
+		border-radius: 0px 56px 56px 0px;
+		border: 1px solid #8E0010;
+		background: #FFF;
+		padding: 17px 13px
+		max-width: 292px
+		width: 100%
+		color: #8E0010;
+		font-family: Montserrat;
+		font-size: 30px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		display: flex
+		align-items: center;
+		gap: 10px
+		border-radius: 56px 0px;
+		justify-content: center
+		+r(767)
+			font-size: 20px
+
+	&__modal
+		+r(576)
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: scroll
+			background-color: rgba(0, 0, 0, 0.7);
+			justify-content: center;
+			flex-direction: column
+			align-items: center;
+			z-index: 1000;
+			justify-content: flex-start
+			overflow: scroll
+
+
+	#offlineModalClose
+		display: none
+		+r(576)
+			display: block
+			position: absolute;
+			top: 0%;
+			right: 0px;
+			font-size: 40px;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			color: #8E0010;
+			&::hover
+				color: red
+	
+	#onlineModalClose
+		display: none
+		+r(576)
+			display: block
+			position: absolute;
+			top: 0%;
+			right: 0px;
+			font-size: 30px;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			color: #fff;
+			&::hover
+				color: red
+
+.reviews
+	margin-top: 140px
+	overflow: hidden
+	+r(992)
+		margin-top: 40px
+
+	&__container
+		display: grid
+		grid-template-columns: 43% 57%;
+		justify-content: space-between;
+		position: relative
+		padding: 70px 0 50px 0
+		+r(1200)
+			gap: 15px
+		+r(992)
+			grid-template-columns: 1fr
+
+	&__content
+		display: flex
+		flex-direction: column
+		justify-content: center;
+		max-width: 420px
+		+r(992)
+			align-items: center;
+			max-width: fit-content
+
+	&__title
+		color: rgba(0, 0, 0, 0.70);
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			color: #8E0010;
+			font-size: 30px;
+
+	&__subtitle
+		color: #000;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 1.4px;
+		margin-top: 30px
+		margin-bottom: 70px
+		+r(576)
+			margin-bottom: 30px
+			color: #8E0010;
+			text-align: center;
+			font-size: 16px;
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		padding: 17px 39px 17px 56px;
+		display: flex
+		align-items: center
+		justify-content: space-between;
+		img
+			animation: left 1.5s infinite
+		&:hover
+			color: #8e0010;
+			border: 1px solid #8e0010;
+		+r(767)
+			max-width: 322px
+			width: 100%
+		+r(576)
+			font-size: 24px
+			padding: 10px 30px
+			width: 80%
+			display: none
+
+	&__img
+		max-width: 303px
+		width: 100%
+		+r(576)
+			max-width: none
+			padding: 0px 50px;
+			object-fit: contain;
+
+	&__swiper
+		overflow: hidden
+
+	&__prev, &__next
+		position: absolute
+		width: 16px
+		height: 16px
+		z-index: 10
+		+transition
+		padding-bottom: 15px
+		display: none
+
+	&__prev
+		border-top: 2px solid #000
+		border-left: 2px solid #000
+		right: 34%;
+		top: 3%;
+		transform: translate(0, -50%)
+		+rotate(-45)
+		&:hover
+			border-top: 2px solid rgb(142, 0, 16);
+			border-left: 2px solid rgb(142, 0, 16);
+		+r(1200)
+			right: 36%
+		+r(992)
+			top: 97%
+			left: 40%
+
+	&__next
+		border-top: 2px solid #000
+		border-right: 2px solid #000
+		right: 26%;
+		top: 3%;
+		transform: translate(0, -50%)
+		+rotate(45)
+		&:hover
+			border-top: 2px solid rgb(142, 0, 16);
+			border-right: 2px solid rgb(142, 0, 16);
+		+r(1200)
+			right: 24%
+		+r(992)
+			top: 97%
+			right: 40%
+
+	&__text
+		color: #000;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 1.12px;
+		position: absolute
+		right: 28%;
+		top: 3%;
+		+r(992)
+			display: none
+
+	&__swiper-btn
+		display: none
+		+r(576)
+			display: flex
+			align-items: center
+			gap: 10px
+			margin-bottom: 40px
+			img
+				width: 24px;
+				height: 24px;
+				&:nth-child(1)
+					transform: rotate(90deg);
+				&:nth-child(3)
+					transform: rotate(270deg);
+
+	&__swiper-text
+		color: #8E0010;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 1.12px;
+
+.feedback
+	margin-top: 40px
+	position: relative
+	+r(576)
+		background:  url("../img/feedback-img.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 1
+
+	&__container
+		padding: 0
+		position: relative
+		z-index: 10
+
+	&__head
+		background: #8E0010;
+		max-width: 1920px
+		width: 100%
+		margin: 0 auto
+		+r(576)
+			background: transparent
+
+	&__title
+		color: rgba(255, 255, 255, 0.90);
+		text-align: center;
+		font-family: Prosto One;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 16px
+		+r(767)
+			font-size: 40px
+		+r(576)
+			color: rgba(255, 255, 255, 0.90);
+			font-size: 25px;
+			margin-top: 15px
+	
+	&__title-second
+		color: rgba(255, 255, 255, 0.90);
+		text-align: center;
+		font-family: Prosto One;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin: 35px
+		+r(767)
+			font-size: 40px
+		+r(576)
+			color: #FFF;
+			font-size: 25px;
+			margin-bottom: 0
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.60);
+		font-family: Prosto One;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			color: rgba(255, 255, 255, 0.60);
+			font-size: 16px;
+			margin-bottom: 15px
+
+	&__text
+		color: #000;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(767)
+			font-size: 40px
+		+r(576)
+			font-size: 34px
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		padding: 17px 39px 17px 56px;
+		display: flex
+		align-items: center
+		justify-content: space-between;
+		gap: 55px
+		img
+			animation: left 1.5s infinite
+		&:hover
+			color: #8e0010;
+			border: 1px solid #8e0010;
+		+r(1200)
+			gap: 35px
+		+r(767)
+			max-width: 322px
+			width: 100%
+			gap: 15px
+		+r(576)
+			color: #FFF;
+			font-size: 30px;
+			padding: 10px 30px
+			width: 80%
+			border-radius: 56px 0px;
+			border: 1px solid #FFF;
+			img
+				filter: brightness(0) invert(100%);
+				animation: left 1.5s infinite
+
+	&__btn.last
+		border-radius: 0px 56px;
+		+r(576)
+			border-radius: 0px 56px;
+			border: 1px solid #FFF;
+
+	&__content
+		display: grid
+		grid-template-columns: 40% 60%
+		+r(992)
+			grid-template-columns: 1fr
+
+	&__item
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 100px
+		margin-bottom: 45px
+		+r(1200)
+			gap: 40px
+		+r(576)
+			margin-top: 35px
+
+	&__img
+		margin-inline-start: -13%;
+		img
+			width: 100%
+			object-fit: cover
+		+r(1200)
+			margin-inline-start: -13%;
+		+r(992)
+			display: none
+
+	&__wrapper
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+// reviwes-online
+
+.reviwes-online
+
+	&__container
+		position: relative
+
+	&__title
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		padding:  45px 0 35px 0
+		+r(576)
+			padding: 50px 0 40px 0
+
+	&__head
+		background: #8E0010;
+		max-width: 1920px
+		width: 100%
+		margin: 0 auto
+
+	&__home
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		position: absolute
+		left: 1%
+		top: 4%
+		+r(576)
+			left: 0
+			top: 0
+
+	&__swiper
+		margin-top: 40px
+		overflow: hidden
+		+r(1350)
+			padding-bottom: 70px
+
+	&__prev, &__next
+		position: absolute
+		width: 40px
+		height: 40px
+		z-index: 10
+		+transition
+		padding-bottom: 15px
+
+	&__prev
+		border-top: 2px solid #000
+		border-left: 2px solid #000
+		left: -5%;
+		top: 50%;
+		transform: translate(0, -50%)
+		+rotate(-45)
+		&:hover
+			border-top: 2px solid rgb(142, 0, 16);
+			border-left: 2px solid rgb(142, 0, 16);
+		+r(1450)
+			left: -1%
+		+r(1350)
+			left: 35%
+			top: 97%
+		+r(992)
+			top: 97%
+			left: 40%
+		+r(576)
+			left: 20%
+
+	&__next
+		border-top: 2px solid #000
+		border-right: 2px solid #000
+		right: -5%;
+		top: 50%;
+		transform: translate(0, -50%)
+		+rotate(45)
+		&:hover
+			border-top: 2px solid rgb(142, 0, 16);
+			border-right: 2px solid rgb(142, 0, 16);
+		+r(1450)
+			right: -1%
+		+r(1350)
+			right:  35%
+			top: 97%
+		+r(992)
+			top: 97%
+			right: 40%
+		+r(576)
+			right: 20%
+
+// cash
+
+.cash
+	background: #8E0010;
+
+	&__container
+		display: grid
+		grid-template-columns: 35% 65%
+		margin-top: 60px
+		align-items: center
+		+r(992)
+			grid-template-columns: 1fr
+
+	&__content
+		display: flex
+		flex-direction: column
+		align-items: center;
+		+r(992)
+			align-items: center;
+			order: 2
+		+r(576)
+			flex-wrap: wrap;
+			justify-content: center;
+			flex-direction: row
+			gap: 20px
+
+	&__head
+		display: flex
+		justify-content: center
+
+	&__home
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		position: absolute
+		left: 0%
+		top: 0%
+
+	&__price
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(576)
+			font-size: 30px
+
+	&__value
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(576)
+			font-size: 30px
+
+	&__btn
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		border-radius: 56px 0px;
+		border: 1px solid #FFF;
+		padding: 17px 39px 17px 56px;
+		max-width: 335px;
+		width: 100%
+		+r(576)
+			padding: 17px 39px;
+			border-radius: 56px 0px;
+			text-align: center;
+			margin: 0
+			font-size: 16px
+			width: auto
+
+	&__swiper
+		overflow: hidden
+		+r(992)
+			order: 1
+			margin-bottom: 30px
+
+	&__img
+		object-fit: contain;
+		max-width: 1050px
+		width: 100%
+		
+	&__wrapper
+		height: 700px
+		
+		+r(767)
+			max-height: 546px 
+		+r(576)
+			max-height: 450px 
+
+	&__swipe
+		color: rgba(255, 255, 255, 0.60);
+		font-family: Prosto One;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 60px
+		+r(576)
+			margin: 0
+
+// marathone
+
+.marathone
+	overflow: hidden
+	+r(576)
+		background:  url("../img/marathone-img.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		display: grid
+		grid-template-columns: 65% 35%
+		+r(767)
+			grid-template-columns: 1fr
+		+r(576)
+			position: relative
+			z-index: 10
+
+	&__head
+		background: #8E0010;
+		max-width: 5000px
+		width: 100%
+		margin: 0 auto
+		+r(576)
+			background: transparent
+			position: relative
+			z-index: 10
+
+	&__item
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 40px
+		padding: 31px 0
+		+r(1250)
+			flex-direction: column
+			gap: 5px
+		+r(992)
+			padding-top: 55px
+			padding-bottom: 40px
+		+r(576)
+			padding: 86px 0 72px 0
+
+	&__title
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(576)
+			font-size: 30px
+			text-align: center
+			color: #FFF
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(576)
+			font-size: 16px
+
+	&__price
+		+r(576)
+			color: #F00;
+			font-family: Prosto One;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+
+	&__home
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		position: absolute
+		left: 1%
+		top: 3%
+		+r(992)
+			top: 0
+
+	&__list-title
+		color: #000;
+		font-family: Montserrat;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			color: #FFF;
+			font-family: Montserrat;
+			font-size: 24px;
+		
+	&__content
+		display: flex
+		flex-direction: column
+		margin-top: 48px
+		align-items: center;
+		+r(767)
+			margin-bottom: 20px
+
+	&__list
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		list-style-type: disc;
+		margin-top: 40px
+		display: flex
+		flex-direction: column
+		gap: 10px
+		&::marker
+			width: 3px
+			background: #000
+			color: #000
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+
+	&__text
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 136.9%;
+		margin-top: 60px
+		+r(767)
+			text-align: center
+		+r(576)
+			margin-top: 115px
+			font-size: 16px
+			color: #fff
+
+	&__subtext
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 136.9%;
+		margin-top: 10px
+		+r(767)
+			text-align: center
+			font-size: 20px
+		+r(576)
+			font-size: 16px
+			color: #fff
+			margin-top: 25px
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		padding: 17px 39px 17px 56px;
+		max-width: 351px;
+		width: 100%
+		margin-top: 70px
+		gap: 55px
+		display: flex
+		align-items: center
+		img
+			animation: left 1.5s infinite
+		+r(576)
+			border-radius: 56px 0px;
+			padding: 17px 39px 17px 56px;
+			text-align: center;
+			gap: 10px
+			border: 1px solid #FFF;
+			color: #FFF;
+			font-size: 36px;
+			margin-bottom: 70px
+			img
+				filter: brightness(0) invert(100%);
+
+
+	&__img
+		margin-inline-start: 13%;
+		width: 100%
+		+r(767)
+			display: none
+
+// trainie
+
+.trainie
+	overflow: hidden
+	+r(576)
+		background: url("../img/trainie-img.png") top/151% 26%;
+		position: relative;
+		background-position: unset;
+		background-repeat: no-repeat;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		max-width: 1400px
+		padding: 0
+
+	&__wrapper
+		display: grid
+		position: relative
+		z-index: 10
+		grid-template-columns: 40% 60%;
+		justify-content: space-between;
+		+r(1250)
+			grid-template-columns: repeat(2, 50%)
+		+r(992)
+			grid-template-columns: 1fr
+			justify-items: center
+
+	&__wrapper-second
+		display: grid
+		position: relative
+		z-index: 10
+		grid-template-columns: 60% 40%;
+		justify-content: space-between;
+		max-width: 5000px
+		width: 100%
+		+r(1250)
+			grid-template-columns: repeat(2, 50%)
+		+r(992)
+			grid-template-columns: 1fr
+			justify-items: center
+		+r(576)
+			background: url("../img/trainie-img2.png");
+			position: relative
+			background-repeat: no-repeat;
+			background-size: cover
+			&::before 
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.75);
+				z-index: 1
+
+	&__wrapper-third
+		display: grid
+		position: relative
+		z-index: 10
+		grid-template-columns: 40% 60%;
+		justify-content: space-between;
+		max-width: 1920px
+		width: 100%
+		ul
+			margin-top: 30px
+		img
+				object-fit: cover
+				height: -webkit-fill-available;
+		+r(1250)
+			grid-template-columns: repeat(2, 50%)
+		+r(992)
+			grid-template-columns: 1fr
+			justify-items: center
+		+r(576)
+			background: url("../img/trainie-img3.png");
+			position: relative
+			background-repeat: no-repeat;
+			background-size: cover
+			background-position: center
+			img
+				height: auto
+			&::before 
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.75);
+				z-index: 1
+
+	&__wrapper-fourt
+		display: grid
+		position: relative
+		z-index: 10
+		grid-template-columns: 60% 40%;
+		justify-content: space-between;
+		max-width: 1920px
+		width: 100%
+		+r(1250)
+			grid-template-columns: repeat(2, 50%)
+		+r(992)
+			grid-template-columns: 1fr
+			justify-items: center
+		+r(576)
+			background: url("../img/trainie-img4.png");
+			position: relative
+			background-repeat: no-repeat;
+			background-size: cover
+			&::before 
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.75);
+				z-index: 1
+
+	&__title
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(1250)
+			font-size: 34px
+			text-align: center
+		+r(576)
+			color: rgba(255, 255, 255, 0.80);
+			text-align: center;
+			font-size: 16px;
+	
+	&__title-first
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		+r(1250)
+			font-size: 34px
+			text-align: center
+		+r(576)
+			color: rgba(255, 255, 255, 0.80);
+			text-align: center;
+			font-size: 22px;
+			padding: 70px 0 0 0
+
+	&__home
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		position: absolute
+		left: 1%
+		top: 0%
+
+	&__head
+		background: #8E0010;
+		max-width: 1920px
+		width: 100%
+		margin: 0 auto
+		+r(576)
+			background: transparent
+			position: relative
+			z-index: 10
+
+	&__head-second
+		background: #8E0010;
+		max-width: 1920px
+		width: 100%
+		margin: 0 auto
+		+r(576)
+			position: relative
+			z-index: 10
+
+	&__content
+		max-width: 800px
+		padding-right: 20px
+		position: relative
+		z-index: 20
+		+r(767)
+			margin-bottom: 20px
+		+r(576)
+			padding: 0 20px
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+
+	&__item
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		padding: 20px 10px
+		+r(992)
+			padding: 41px 0 30px 0
+
+	&__item-inline
+		display: flex
+		justify-content: space-between
+		padding: 22px 45px 28px 45px
+		+r(992)
+			flex-direction: column
+		+r(576)
+			flex-direction: row
+			justify-content: space-between
+			&:nth-last-child(1)
+				justify-content: space-between
+
+	&__list-title
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 148.9%;
+		&:nth-child(1)
+			margin-top: 47px
+		&:nth-child(3)
+			margin-top: 30px
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+			&:nth-child(1)
+				margin-top: 20px
+			&:nth-child(3)
+				margin-top: 40px
+	
+	&__list-subtitle
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 156.4%;
+		text-align: center
+		margin: 20px 0 0 0
+		+r(576)
+			color: #FFF;
+			margin-top: 30px
+			font-size: 24px;
+
+	&__list-title-center
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 148.9%;
+		text-align: center
+		margin-top: 47px
+		+r(992)
+			text-align: start
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+
+	&__list
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 148.9%;
+		list-style-type: disc;
+		display: flex
+		flex-direction: column
+		gap: 10px
+		padding-left: 40px
+		margin-top: 10px
+		&::marker
+			width: 3px
+			background: #000
+			color: #000
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+			&::marker
+				background: #fff
+	
+	&__list-center
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 148.9%;
+		list-style-type: disc;
+		display: flex
+		flex-direction: column
+		gap: 10px
+		padding-left: 40px
+		margin-top: 10px
+		align-content: flex-end;
+		flex-wrap: wrap;
+		&::marker
+			width: 3px
+			background: #000
+			color: #000
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+			&::marker
+				background: #fff
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		padding: 17px 39px;
+		border-radius: 56px 0px;
+		border: 1px solid #000;
+		display: flex
+		gap: 27px
+		align-items: center
+		margin-top: 70px
+		width: 100%
+		max-width: 840px
+		margin-bottom: 35px
+		img
+			animation: left 1.5s infinite
+		+r(1250)
+			font-size: 25px
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+			margin-top: 35px
+			border: 1px solid #FFF;
+			max-width: 420px
+			img
+				filter: brightness(0) invert(100%)
+				max-width: 60px
+				width: 100%
+
+	&__hiden
+		+r(576)
+			display: none
+
+	&__img
+		&:nth-child(1)
+			img
+				height: -webkit-fill-available;
+		&:nth-child(2)
+			display: flex;
+			justify-content: flex-end;
+		+r(1400)
+			&:nth-child(1)
+				max-width: 489px;
+				margin-inline-start: -3%
+				img
+					width: 100%
+					object-fit: cover
+
+			&:nth-child(2)
+				max-width: 489px;
+				margin-inline-start: 28%
+				img
+					width: 100%;
+					max-width: 410px;
+					height: -webkit-fill-available;
+					object-fit: cover
+
+			&:nth-child(3)
+				max-width: 489px;
+				margin-inline-start: -3%
+				img
+					width: 100%
+					object-fit: cover
+					height: -webkit-fill-available
+		+r(992)
+			display: none
+			&:nth-child(2)
+				display: none
+
+// maister-class
+
+.maister-class
+	+r(576)
+		background:  url("../img/maister-class-img.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		+r(576)
+			position: relative
+			z-index: 10
+
+	&__title
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(1350)
+			font-size: 50px
+		+r(576)
+			color: #FFF;
+			font-size: 22px;
+			display: flex
+			align-items: center
+			gap: 10px
+			&::after
+				content: "400 $"
+				display: block
+				color: #F00;
+				font-size: 22px;
+				font-family: Prosto One;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				text-align: center
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			font-size: 12px;
+
+	&__price
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(992)
+			font-size: 50px
+			margin-top: 10px
+		+r(576)
+			color: #F00;
+			font-size: 24px;
+			display: none
+
+	&__item
+		display: flex
+		justify-content: center;
+		align-items: center;
+		padding: 10px 0 15px 0
+		+r(1200)
+			flex-direction: column
+		+r(992)
+			padding: 40px 0 35px
+		+r(576)
+			padding: 85px 0 0 0
+
+	&__list-title
+		color: #000;
+		font-family: Montserrat;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 141.4%;
+		text-align: center
+		margin-top: 30px
+		+r(576)
+			color: #FFF;
+			font-size: 20px;
+			margin-top: 11px
+	
+	&__list-subtitle
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 141.4%;
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+
+	&__list
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 141.4%;
+		display: flex
+		flex-direction: column
+		li
+			padding-left: 20px
+			margin-top: 10px
+			display: flex
+			gap: 10px
+			align-items: center
+			&::before
+				content: "";
+				display: inline-block;
+				width: 5px
+				height: 5px 
+				background: #fff;
+				border-radius: 50%;
+				margin-right: 5px;
+				flex-shrink: 0;
+		+r(576)
+			margin-top: 10px
+			color: #FFF;
+			font-size: 16px;
+
+	&__content
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		margin-top: 30px
+		+r(992)
+			grid-template-columns: repeat(2, 1fr)
+			row-gap: 15px
+		+r(576)
+			grid-template-columns: 1fr
+
+	&__description
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 141.4%;
+		margin-top: 15px
+		+r(576)
+			color: #FFF;
+			margin-top: 40px
+			font-size: 16px;
+
+	&__attention
+		color: #000;
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 141.4%;
+		margin-top: 20px
+		+r(767)
+			font-size: 20px
+		+r(576)
+			color: #FFF;
+			text-align: center;
+			font-size: 12px;
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		display: flex;
+		padding: 17px 39px 17px 56px;
+		align-items: center;
+		gap: 55px;
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		margin: 75px auto
+		max-width: 850px;
+		width: 100%
+		img
+			animation: left 1.5s infinite
+		+r(992)
+			font-size: 25px
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+			gap: 15px
+			padding: 17px 48px 17px 24px;
+			align-items: center
+			border-radius: 56px 0px;
+			border: 1px solid #FFF;
+			margin-top: 75px
+			margin-bottom: 90px
+			img
+				filter: brightness(0) invert(100%);
+
+	&__list-subtext
+		display: none
+		+r(576)
+			display: block
+			color: #FFF;
+			font-family: Montserrat;
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 300;
+			line-height: 134.4%;
+		
+	&__list-item
+		display: none
+		+r(576)
+			display: block
+			color: #FFF;
+			font-family: Montserrat;
+			font-size: 10px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 141.4%;
+			padding-left: 10px
+			li
+				&::before
+					content: "";
+					display: inline-block;
+					width: 3px
+					height: 3px 
+					background: #fff;
+					border-radius: 50%;
+					margin-right: 5px;
+					flex-shrink: 0;
+
+	&__footer
+		+r(576)
+			display: none !important
+
+.footer
+	background: #8E0010;
+
+	&__title
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		margin-top: 10px
+
+	&__subtitle
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+
+	&__text
+		color: rgba(255, 255, 255, 0.70);
+		font-family: Prosto One;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		padding-left: 5px
+		&::before
+			content: "";
+			display: inline-block;
+			width: 5px
+			height: 5px 
+			background: rgba(255, 255, 255, 0.70);
+			border-radius: 50%;
+			margin-right: 5px;
+			flex-shrink: 0;
+		+r(576)
+			font-size: 14px
+
+	&__content
+		display: flex
+		align-items: center;
+		gap: 10px
+		margin-bottom: 15px
+		+r(767)
+			flex-direction: column;
+			align-items: flex-start
+			margin-top: 10px
+
+	&__item
+		display: flex
+		flex-direction: column
+		gap: 5px
+
+// profi
+.profi
+	overflow: hidden
+	+r(576)
+		background:  url("../img/profi-img1.png");
+		position: relative
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		position: relative
+		z-index: 10
+
+	&__title
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(1350)
+			font-size: 50px
+		+r(576)
+			font-size: 22px;
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			font-size: 12px;
+			&:nth-child(2)
+				display: none
+				
+
+	&__price
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(992)
+			font-size: 50px
+			margin-top: 10px
+		+r(576)
+			color: #F00;
+			font-size: 24px;
+			order: 1
+
+	&__item
+		display: flex
+		justify-content: center;
+		align-items: center;
+		padding: 20px 0 15px 0
+		gap: 35px
+		+r(1550)
+			flex-direction: column
+			gap: 0
+		+r(992)
+			padding: 40px 0 35px
+		+r(576)
+			padding: 87px 0 0 0
+
+	&__item-text
+		+r(576)
+			display: flex
+			flex-direction: column
+			order: 2
+
+	&__subtitle-bottom
+		display: flex
+		gap: 35px
+		margin-bottom: 30px
+		+r(992)
+			flex-direction: column;
+
+	&__list-title
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 131.4%;
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+
+	&__list-title-bottom
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 131.4%;
+		margin: 25px 0
+
+	&__description
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 131.4%;
+		margin-bottom: 25px
+		+r(576)
+			color: #FFF;
+			font-size: 16px;
+
+	&__list
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 141.4%;
+		display: flex
+		flex-direction: column
+		margin-top: 75px
+		justify-content: center
+		li
+			padding-left: 20px
+			margin-top: 2px
+			display: flex
+			gap: 10px
+			align-items: center
+			&::before
+				content: "";
+				display: inline-block;
+				width: 5px
+				height: 5px 
+				background: #000000b3;
+				border-radius: 50%;
+				margin-right: 5px;
+				flex-shrink: 0;
+		&:nth-last-child(2)
+			margin-top: 30px
+		+r(576)
+			color: #FFF;
+			font-family: Montserrat;
+			font-size: 12px;
+			margin-top: 0px
+			li
+				&::before
+					background: #ffffff;
+
+	&__content-first
+		display: flex
+		justify-content: space-between
+
+	&__content-second
+		display: flex
+		justify-content: space-between
+		+r(992)
+			justify-content: start
+
+	&__lists
+		display: flex
+		flex-direction: column
+		gap: 45px
+		+r(576)
+			gap: 5px
+
+	&__img-first
+		margin-inline-end: -6%;
+		+r(1200)
+			margin-inline-end: -11%;
+		+r(992)
+			display: none
+	
+	&__img-second
+		margin-inline-start: -6%;
+		+r(1200)
+			margin-inline-start: -11%;
+		+r(992)
+			display: none
+
+	&__btn
+		color: #000;
+		font-family: Montserrat;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: normal;
+		display: flex;
+		padding: 17px 39px 17px 56px;
+		align-items: center;
+		gap: 55px;
+		border-radius: 56px 0px;
+		border: 1px solid rgba(0, 0, 0, 0.80);
+		margin: 75px auto
+		max-width: 850px;
+		width: 100%
+		img
+			animation: left 1.5s infinite
+		+r(992)
+			font-size: 25px
+		+r(576)
+			gap: 15px
+			padding: 17px 30px
+			border-radius: 56px 0px;
+			border: 1px solid #FFF;
+			color: #FFF;
+			font-size: 16px;
+			img
+				filter: brightness(0) invert(100%)
+
+
+	&__footer
+		+r(576)
+			display: none !important
+// premanent-base
+
+.premanent-base
+	overflow: hidden
+	+r(576)
+		position: relative
+		background: url(../img/bg-group.png) top/100% 103%
+		background-repeat: no-repeat;
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+	&__container
+		+r(576)
+		position: relative
+		z-index: 10
+
+	&__title
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(1350)
+			font-size: 50px
+		+r(767)
+			font-size: 40px
+		+r(576)
+			color: #FFF;
+			font-size: 24px;
+			display: flex
+			gap: 10px
+			&::after
+				content: "1500 $"
+				display: block
+				color: #F00;
+				font-size: 22px;
+				font-family: Prosto One;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			&:nth-child(1)
+				font-size: 12px
+				&::before
+					content: ""
+					display: block
+					width: 15px;
+					height: 15px;
+					background: url
+			&:nth-child(2)
+				font-size: 12px
+				text-align: center
+				margin-top: 17px
+
+	&__content-first
+		display: flex
+		justify-content: space-between
+		+r(576)
+			padding-block-end: 26%;
+
+
+	&__content-second
+		display: flex
+		justify-content: space-between
+		+r(992)
+			justify-content: start
+
+	&__content-second.padding
+		+r(576)
+			padding-bottom: 26%
+			margin-block-start: -23%;
+
+	&__price
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(992)
+			font-size: 50px
+		+r(767)
+			font-size: 40px
+		+r(576)
+			display: none
+
+	&__list-title-bottom
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 131.4%;
+		margin: 25px 0
+		+r(576)
+		color: #FFF;
+		font-size: 18px;
+
+	&__list
+		color: #000;
+		font-family: Montserrat;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 141.4%;
+		display: flex
+		flex-direction: column
+		margin-top: 75px
+		justify-content: center
+		li
+			padding-left: 20px
+			margin-top: 2px
+			display: flex
+			gap: 10px
+			align-items: center
+			&::before
+				content: "";
+				display: inline-block;
+				width: 5px
+				height: 5px 
+				background: #000000b3;
+				border-radius: 50%;
+				margin-right: 5px;
+				flex-shrink: 0;
+		&:nth-last-child(2)
+			margin-top: 30px
+		+r(576)
+			color: #FFF;
+			font-family: Montserrat;
+			font-size: 16px;
+			margin-top: 0px
+			li
+				&::before
+					background: #ffffff;
+			&:nth-child(1)
+				margin-top: 54px
+			&:nth-child(2)
+				margin-top: 54px
+				margin-bottom: 48px
+			&:nth-child(3)
+				margin-top: 54px
+				margin-bottom: 92px
+			&:nth-child(4)
+				margin-top: 54px
+
+	&__item
+		padding: 10px 0 5px 0
+		+r(992)
+			padding: 40px 0 20px 0
+		+r(576)
+			padding: 110px 0 20px 0
+
+	&__subtitle-bottom
+		display: flex
+		flex-direction: column
+		gap: 5px
+
+	&__title-items
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 40px
+		+r(767)
+			gap: 20px
+		+r(576)
+			gap: 5px
+			flex-direction: column
+
+// perfect-brows
+
+.perfect
+	overflow: hidden
+	+r(576)
+		background: url("../img/bg-group2.png") top/100% 50%
+		position: relative
+		background-size: cover
+		background-repeat: no-repeat;
+		background-position: left
+		&::before 
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.75);
+			z-index: 1
+
+
+	&__title
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(1350)
+			font-size: 50px
+		+r(992)
+			font-size: 34px
+		+r(576)
+			color: #FFF;
+			font-size: 23px;
+			text-align: start
+			display: flex
+			align-items: center
+			gap: 10px
+			max-width: 316px;
+			width: 100%
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			gap: 0
+			&::after
+				content: "700 $"
+				display: block
+				color: #F00;
+				font-size: 22px;
+				font-family: Prosto One;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				text-align: center
+				margin-block-start: -8%;
+
+	&__item-text
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+
+	&__container
+		+r(576)
+			position: relative
+			z-index: 10
+
+	&__subtitle
+		color: rgba(255, 255, 255, 0.80);
+		font-family: Prosto One;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(576)
+			font-size: 12px;
+			&:nth-child(1)
+				display: none
+			&:nth-child(3)
+				display: none
+
+	&__price
+		color: #FFF;
+		font-family: Prosto One;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-align: center
+		+r(992)
+			font-size: 50px
+			margin-top: 10px
+		+r(576)
+			font-size: 40px
+			display: none
+
+	&__subtitle-bottom
+		display: flex
+		justify-content: center
+		align-items: center
+		gap: 20px
+		+r(767)
+			flex-direction: column
+
+	&__item
+		display: flex
+		flex-direction: column
+		padding: 20px 0 30px 0
+		+r(1250)
+			padding: 45px 0 30px 0
+		+r(576)
+			padding: 100px 25px 0px 25px
+
+	&__lists
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		+r(576)
+			grid-template-columns: 1fr
+
+	&__attention
+		color: #000;
+		font-family: Montserrat;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 143.9%; 
+		margin: 40px 0
+		+r(576)
+			color: #FFF;
+			font-size: 20px;
+			margin-bottom: 0
+			margin-top: 25px
+			text-align: center
+			padding-bottom: 30px
+
+	&__content-second
+		display: flex
+		justify-content: space-between
+		gap: 25px
+
+	&__footer
+		+r(576)
+			display: none
+
+	&__home
+		color: #FFF;
+		font-family: Montserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex
+		align-items: center
+		position: absolute
+		left: 1%
+		top: 4%
+		+r(1350)
+			top: 0
